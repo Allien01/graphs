@@ -7,7 +7,16 @@ def cria_matriz(vertices):
         matriz.append(linha)
     return matriz
 
-
+def cria_arquivo(graph_name):
+    arquivo = graph_name + '.txt'
+    file = open(arquivo, 'w')
+    for i in matriz:
+        line = ''
+        for j in i:
+            line += j
+        file.write(line +"\n")
+    file.close()
+    print("\nGrafo gerado! Arquivo salvo como '{}' ".format(arquivo))
 
 # adicionando prevenção contra input invalido
 try:
@@ -18,7 +27,6 @@ try:
 except:
     print("Opção inválida! Encerrando programa...")
     quit()
-
 
 if option == 1:
     arquivo = input("Digite o nome do arquivo que deseja carregar('arquivo.txt'): ")
@@ -45,16 +53,6 @@ elif option == 2:
             count += 1
     for i in matriz:
             print(i)
-    print("\nGrafo gerado! Arquivo salvo como '{}.txt' ".format(graph_name))        
+    cria_arquivo(graph_name)
 else:
     print("Opção inexistente! Encerrando o programa...")
-
-# cria o arquivo
-arquivo = graph_name + '.txt'
-file = open(arquivo, 'w')
-for i in matriz:
-    line = ''
-    for j in i:
-        line += j
-    file.write(line +"\n")
-file.close()
