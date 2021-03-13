@@ -34,14 +34,12 @@ if option == 1:
     for i in fhandle:
         print(i.rstrip())
     quit()
-
-# cria o grafo
 elif option == 2:
     graph_name = input("Insira o nome do arquivo para salvar seu grafo: ")
-    m = int(input("Insira o número de Vertices: ")) # inserir um try/except aqui
-    n = int(input("Insira o número de Arestas: ")) # inserir um try/except aqui
+    m = int(input("Insira o número de Vertices: "))  # inserir um try/except aqui
+    n = int(input("Insira o número de Arestas: "))  # inserir um try/except aqui
     print("Insira as entradas da Diagonal Superior da Matriz de Adjacências")
-    matriz = cria_matriz(m)  #cria a matriz MxM
+    matriz = cria_matriz(m)   # cria a Matriz MxM
     for i in range(m):
         matriz[i][i] = '0'
         count = i + 1
@@ -51,8 +49,8 @@ elif option == 2:
             matriz[i][j] = elemento
             matriz[j][i] = elemento
             count += 1
-    for i in matriz:
-            print(i)
+    for linha in matriz:
+            print(linha)
     cria_arquivo(graph_name)
 else:
     print("Opção inexistente! Encerrando o programa...")
